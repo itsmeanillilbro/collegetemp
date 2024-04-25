@@ -10,7 +10,7 @@
             <div class="col-lg-12">
                 <h1 class="page-header">
                     <div class="col-xs-4">
-                        <a href="{{route('banner.create')}}" class="btn btn-primary">Add New</a>
+                        <a href="{{route('topbanner.create')}}" class="btn btn-primary">Add New</a>
                     </div>
                     All Banners
                 </h1>
@@ -33,7 +33,7 @@
                                     </thead>
                                     <tbody>
                                     <tr>
-                                    @foreach($banner as $ban)
+                                    @foreach($topbanner as $ban)
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$ban->author}}</td>
                                         <td>{{$ban->title}}</td>
@@ -41,9 +41,9 @@
                                         <td><img src="{{asset('storage/images/' . $ban->image)}}"  style="width:100px; alt=""></td>
 
                                         <td>{{date('Y-m-d', strtotime($ban->created_at))}}</td>
-                                        <td><a class="btn btn-primary" href="{{route('banner.edit', $ban->id)}}" >Edit</a></td>
+                                        <td><a class="btn btn-primary" href="{{route('topbanner.edit', $ban->id)}}" >Edit</a></td>
                                         <td>
-                                            <form action="{{route('banner.destroy', $ban->id)}}"  method="POST" >
+                                            <form action="{{route('topbanner.destroy', $ban->id)}}"  method="POST" >
                                          @csrf
                                         @method('DELETE')
 
@@ -51,7 +51,7 @@
                                          </form>
                                         </td>
                                         <td>
-    <form action="{{ route('banner.publish', $ban->id) }}" method="post">
+    <form action="{{ route('topbanner.publish', $ban->id) }}" method="post">
         @csrf
         <button type="submit" class="btn btn-success confirm-publish"  data-id="{{$ban->id}}" >Publish</a>
     </form>
@@ -62,7 +62,7 @@
                     </tbody>
                                         </table>
                                         <div class="pagination">
-                                        {{$banner->links()}}
+                                        {{$topbanner->links()}}
                                     </div>
                                 </div>
                             </div>

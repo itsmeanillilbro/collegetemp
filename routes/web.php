@@ -4,8 +4,13 @@ use App\Filament\Admin\Resources\BanneResource;
 use App\Http\Controllers\admin\AcademicController;
 use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\BannerController;
+use App\Http\Controllers\admin\GalleryController;
+use App\Http\Controllers\admin\ImagesController;
 use App\Http\Controllers\admin\NoticeController;
+use App\Http\Controllers\admin\SSRController;
+use App\Http\Controllers\admin\TeamsController;
 use App\Http\Controllers\admin\TimelineController;
+use App\Http\Controllers\admin\TopbannerController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\PopupController;
@@ -93,6 +98,40 @@ Route::prefix('admin')->group(function(){
         'index', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
     Route::post('/admin/timeline/publish/{id}', [TimelineController::class, 'publish'])->name('timeline.publish');
+});
+
+Route::prefix('admin')->group(function(){
+    Route::resource('gallery',GalleryController::class)->only([
+        'index', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
+    Route::post('/admin/gallery/publish/{id}', [GalleryController::class, 'publish'])->name('gallery.publish');
+});
+
+Route::prefix('admin')->group(function(){
+    Route::resource('images',ImagesController::class)->only([
+        'index', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
+    Route::get('images/list', [ImagesController::class, 'list'])->name('images.list');
+});
+
+Route::prefix('admin')->group(function(){
+    Route::resource('ssr',SSRController::class)->only([
+        'index', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
+    Route::post('/admin/ssr/publish/{id}', [SSRController::class, 'publish'])->name('ssr.publish');
+});
+Route::prefix('admin')->group(function(){
+    Route::resource('teams',TeamsController::class)->only([
+        'index', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
+    Route::post('/admin/teams/publish/{id}', [TeamsController::class, 'publish'])->name('teams.publish');
+
+});
+Route::prefix('admin')->group(function(){
+    Route::resource('topbanner',TopbannerController::class)->only([
+        'index', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
+    Route::post('/admin/topbanner/publish/{id}', [TopbannerController::class, 'publish'])->name('topbanner.publish');
 });
 
 

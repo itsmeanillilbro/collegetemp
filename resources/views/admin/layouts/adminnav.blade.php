@@ -32,18 +32,18 @@
                 <a href="" class="active"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
 
-            <!-- <li> -->
-            <!-- <li>
+            <li>
+            <li>
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="collapse" data-target="#topbanner"><i class="fa-solid fa-ribbon"></i> Top Banner <i class="fa-solid fa-chevron-down"></i></a>
                 <ul id="topbanner" class="collapse">
                     <li>
-                        <a href="./topbanner.php">View All</a>
+                        <a href="{{route('topbanner.index')}}">View All</a>
                     </li>
                     <li>
-                        <a href="./publish_topbanner.php">Add New</a>
+                        <a href="{{route('topbanner.create')}}">Add New</a>
                     </li>
                 </ul>
-            </li> -->
+            </li>
             <li>
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="collapse" data-target="#popup"><i class="fa-solid fa-fire-flame-curved"></i> Popup Item <i class="fa-solid fa-chevron-down"></i></a>
                 <ul id="popup" class="collapse">
@@ -147,10 +147,10 @@
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="collapse" data-target="#gallery"><i class="fa-regular fa-image"></i> Gallery <i class="fa-solid fa-chevron-down"></i></a>
                 <ul id="gallery" class="collapse">
                     <li>
-                        <a href="./gallery.php">View All</a>
+                        <a href="{{route('gallery.index')}}">View All</a>
                     </li>
                     <li>
-                        <a href="./publish_gallery.php">Add New</a>
+                        <a href="{{route('gallery.index')}}">Add New</a>
                     </li>
                 </ul>
             </li>
@@ -170,10 +170,10 @@
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="collapse" data-target="#team"><i class="fa fa-fw fa-users"></i> Teams <i class="fa-solid fa-chevron-down"></i></a>
                 <ul id="team" class="collapse">
                     <li>
-                        <a href="./team.php">View All</a>
+                        <a href="{{route('teams.index')}}">View All</a>
                     </li>
                     <li>
-                        <a href="./publish_team.php">Add New</a>
+                        <a href="{{route('teams.create')}}">Add New</a>
                     </li>
                 </ul>
             </li>
@@ -238,10 +238,10 @@
                         class="fa-solid fa-download"></i> SSR <i class="fa-solid fa-chevron-down"></i></a>
                 <ul id="ssr" class="collapse">
                     <li>
-                        <a href="./ssr.php">View All</a>
+                        <a href="{{route('ssr.index')}}">View All</a>
                     </li>
                     <li>
-                        <a href="./publish_ssr.php">Add New</a>
+                        <a href="{{route('ssr.create')}}">Add New</a>
                     </li>
                 </ul>
             </li>

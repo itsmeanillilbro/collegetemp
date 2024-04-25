@@ -10,9 +10,9 @@
             <div class="col-lg-12">
                 <h1 class="page-header">
                     <div class="col-xs-4">
-                        <a href="{{route('banner.create')}}" class="btn btn-primary">Add New</a>
+                        <a href="{{route('gallery.create')}}" class="btn btn-primary">Add New</a>
                     </div>
-                    All Banners
+                    Gallery
                 </h1>
                 <div class="row">
                     <div class="col-lg-12">
@@ -24,7 +24,8 @@
                                             <th>Author</th>
                                             <th>Title</th>
                                             <th>Status</th>
-                                            <th>Image</th>
+                                            <th>Cover Image</th>
+                                            <th>Images</th>
                                             <th>Date</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -33,17 +34,21 @@
                                     </thead>
                                     <tbody>
                                     <tr>
-                                    @foreach($banner as $ban)
+                                    @foreach($gallery as $pop)
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$ban->author}}</td>
-                                        <td>{{$ban->title}}</td>
-                                        <td>{{$ban->status}}</td>
-                                        <td><img src="{{asset('storage/images/' . $ban->image)}}"  style="width:100px; alt=""></td>
+                                        <td>{{$pop->author}}</td>
+                                        <td>{{$pop->title}}</td>
+                                        <td>{{$pop->status}}</td>
+                                        <td><img src="{{asset('storage/images/' . $pop->image)}}"  style="width:100px; alt=""></td>
+                                        <td style="display:flex; justify-content:center; border:none;">
+    <a href="{{ route('images.list', ['gallery_id' => $pop->id]) }}" class="glyphicon glyphicon-edit" style="text-decoration:none;"></a>
+</td>
 
-                                        <td>{{date('Y-m-d', strtotime($ban->created_at))}}</td>
-                                        <td><a class="btn btn-primary" href="{{route('banner.edit', $ban->id)}}" >Edit</a></td>
+
+                                        <td>{{date('Y-m-d', strtotime($pop->created_at))}}</td>
+                                        <td><a class="btn btn-primary" href="{{route('gallery.edit', $pop->id)}}" >Edit</a></td>
                                         <td>
-                                            <form action="{{route('banner.destroy', $ban->id)}}"  method="POST" >
+                                            <form action="{{route('gallery.destroy', $pop->id)}}"  method="POST" >
                                          @csrf
                                         @method('DELETE')
 
@@ -51,9 +56,9 @@
                                          </form>
                                         </td>
                                         <td>
-    <form action="{{ route('banner.publish', $ban->id) }}" method="post">
+    <form action="{{ route('gallery.publish', $pop->id) }}" method="post">
         @csrf
-        <button type="submit" class="btn btn-success confirm-publish"  data-id="{{$ban->id}}" >Publish</a>
+        <button type="submit" class="btn btn-success confirm-publish"  data-id="{{$pop->id}}" >Publish</a>
     </form>
 </td>
                                     </tr>
@@ -62,7 +67,7 @@
                     </tbody>
                                         </table>
                                         <div class="pagination">
-                                        {{$banner->links()}}
+                                        {{$gallery->links()}}
                                     </div>
                                 </div>
                             </div>

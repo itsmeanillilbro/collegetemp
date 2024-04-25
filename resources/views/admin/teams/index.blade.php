@@ -10,9 +10,9 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">
                         <div class="col-xs-4">
-                            <a href="{{route('about.create')}}" class="btn btn-primary">Add New</a>
+                            <a href="{{route('teams.create')}}" class="btn btn-primary">Add New</a>
                         </div>
-                        All about
+                        All Teams
                     </h1>
 
 
@@ -28,6 +28,7 @@
                                                 <th>Author</th>
                                                 <th>Title</th>
                                                 <th>Status</th>
+                                                <th>Designation</th>
                                                 <th>Image</th>
                                                 <th>Date</th>
                                                 <th>Edit</th>
@@ -36,18 +37,19 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($about as $new)
+                                        @foreach($teams as $new)
                                         <tr>
 
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $new->author }}</td>
                                                     <td>{{ $new->title }}</td>
                                                     <td>{{ $new->status }}</td>
+                                                    <td>{{$new->designation}}</td>
                                                     <td><img style="width:100px" src="{{asset('storage/images/' . $new->image) }}" ></td>
                                                     <td>{{ date('Y-m-d', strtotime($new->created_at)) }}</td>
-                                                    <td><a class="btn btn-primary" href="{{ route('about.edit', $new->id) }}">Edit</a></td>
+                                                    <td><a class="btn btn-primary" href="{{ route('teams.edit', $new->id) }}">Edit</a></td>
                                                     <td>
-                                                        <form action="{{route('about.destroy', $new->id)}}" method="post">
+                                                        <form action="{{route('teams.destroy', $new->id)}}" method="post">
                                                         @csrf
                                                         @method('DELETE')
 
@@ -55,7 +57,7 @@
                                                         </form>
                                                     </td>
                                                     <td>
-    <form action="{{ route('about.publish', $new->id) }}" method="post">
+    <form action="{{ route('teams.publish', $new->id) }}" method="post">
         @csrf
         <button type="submit" class="btn btn-success confirm-publish"  data-id="{{$new->id}}" >Publish</button>
     </form>
@@ -65,7 +67,7 @@
                                         </tbody>
                                     </table>
                                     <div class="pagination">
-                                        {{$about->links()}}
+                                        {{$teams->links()}}
                                     </div>
                             </div>
                         </div>

@@ -10,9 +10,9 @@
             <div class="col-lg-12">
                 <h1 class="page-header">
                     <div class="col-xs-4">
-                        <a href="{{route('banner.create')}}" class="btn btn-primary">Add New</a>
+                        <a href="{{route('images.create')}}" class="btn btn-primary">Add New</a>
                     </div>
-                    All Banners
+                   Images
                 </h1>
                 <div class="row">
                     <div class="col-lg-12">
@@ -20,49 +20,35 @@
                                 <table class="table table-bordered table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Author</th>
-                                            <th>Title</th>
-                                            <th>Status</th>
+
                                             <th>Image</th>
-                                            <th>Date</th>
-                                            <th>Edit</th>
                                             <th>Delete</th>
-                                            <th>Publish</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
-                                    @foreach($banner as $ban)
-                                        <td>{{$loop->iteration}}</td>
-                                        <td>{{$ban->author}}</td>
-                                        <td>{{$ban->title}}</td>
-                                        <td>{{$ban->status}}</td>
-                                        <td><img src="{{asset('storage/images/' . $ban->image)}}"  style="width:100px; alt=""></td>
+                                    @foreach($images as $pop)
 
-                                        <td>{{date('Y-m-d', strtotime($ban->created_at))}}</td>
-                                        <td><a class="btn btn-primary" href="{{route('banner.edit', $ban->id)}}" >Edit</a></td>
+                                        <td><img src="{{asset('storage/images/' . $pop->images)}}"  style="width:100px; alt=""></td>
+
+
                                         <td>
-                                            <form action="{{route('banner.destroy', $ban->id)}}"  method="POST" >
+                                            <form action="{{route('images.destroy', $pop->id)}}"  method="POST" >
                                          @csrf
                                         @method('DELETE')
 
                                          <button class="btn btn-danger  confirm-delete" >Delete</button>
                                          </form>
                                         </td>
-                                        <td>
-    <form action="{{ route('banner.publish', $ban->id) }}" method="post">
-        @csrf
-        <button type="submit" class="btn btn-success confirm-publish"  data-id="{{$ban->id}}" >Publish</a>
-    </form>
-</td>
+
                                     </tr>
                     @endforeach
 
                     </tbody>
                                         </table>
                                         <div class="pagination">
-                                        {{$banner->links()}}
+                                        {{$images->links()}}
                                     </div>
                                 </div>
                             </div>
