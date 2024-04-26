@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SSR extends Model
+class Menu extends Model
 {
     use HasFactory;
 
-    public $table = 'SSR';
-    protected $fillable=[
+    public $table= 'menu';
+    public $fillable=[
         'id',
         'title',
-        'title1',
+        'link',
+        'status',
         'author',
-        'file',
-        'status'
+
     ];
 }

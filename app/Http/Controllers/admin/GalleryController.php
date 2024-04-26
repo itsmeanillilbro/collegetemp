@@ -30,44 +30,40 @@ class GalleryController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $data = $request->all();
-        $data['author'] = Auth::user()->name;
+{
+    $data = $request->all();
+    $data['author'] = Auth::user()->name;
 
-        if($request->hasFile('image')){
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-
-            $image->storeAs('public/images/', $imageName);
-            $data['image'] = $imageName;
-        }
-
-        $gallery = new Gallery();
-        $gallery->status = 'draft';
-
-        if ($gallery->create($data)) {
-            if ($request->hasFile('multipleimages')) {
-                $images = $request->file('multipleimages');
-                $imageNames = [];
-
-                foreach ($images as $image) {
-                    $imageName = time() . '.' . $image->getClientOriginalExtension();
-                    $image->storeAs('public/images/', $imageName);
-                    $imageNames[] = $imageName; // Store only image names
-                }
-
-                // Convert array of image names to string
-                $data['multipleimages'] = implode(',', $imageNames);
-            }
-
-            Toastr::success('Images inserted successfully', 'Inserted');
-            return redirect()->route('gallery.index');
-        } else {
-            Toastr::error('Error');
-            return redirect()->back();
-        }
+    if($request->hasFile('image')){
+        $image = $request->file('image');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->storeAs('public/images/', $imageName);
+        $data['image'] = $imageName;
     }
 
+    if ($request->hasFile('multipleimages')) {
+        $imageNames = [];
+
+        foreach ($request->file('multipleimages') as $image) {
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->storeAs('public/images/', $imageName);
+            $imageNames[] = $imageName;
+        }
+
+        $data['multipleimages'] = json_encode($imageNames);
+    }
+
+    $gallery = new Gallery();
+    $gallery->status = 'draft';
+    // dd($request->all());
+    if ($gallery->create($data)) {
+        Toastr::success('Images inserted successfully', 'Inserted');
+        return redirect()->route('gallery.index');
+    } else {
+        Toastr::error('Error');
+        return redirect()->back();
+    }
+}
     /**
      * Display the specified resource.
      */

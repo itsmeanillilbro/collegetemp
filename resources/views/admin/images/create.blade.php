@@ -10,21 +10,8 @@
 
                     <form role="form" action="{{route('images.store')}}" method="POST" enctype="multipart/form-data">
 @csrf
-<div class="form-group">
-                    <label for="gallery_title">Title</label>
-                    <select class="form-control" name="gallery_id" id="gallery_id" >
-                            <option value="">Select the Gallery Album</option>
-                                <option value="">
-                                </option>
-
-                        </select>
-                </div>
-
-
-
-
                 <div class="form-group">
-                    <label for="gallery_images">Select Multiple Image </label>
+                    <label for="gallery_images">Select Images </label>
                     <font color='brown'> &nbsp;&nbsp;(Allowed image size: 1024 KB) </font>
                     <input type="file" name="images" multiple>
                     <input type="hidden" name="gallery_id" value="{{ request()->input('gallery_id') }}">

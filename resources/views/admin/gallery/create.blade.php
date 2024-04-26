@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label for="gallery_images">Select Multiple Image </label>
                     <font color='brown'> &nbsp;&nbsp;(Allowed image size: 1024 KB) </font>
-                    <input type="file" name="multipleimages" multiple>
+                    <input type="file" name="multipleimages[]" multiple>
                 </div>
                         <button type="submit" name="publish_tml" class="btn btn-primary" value="publish tml">Publish</button>
 

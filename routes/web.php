@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\GalleryController;
 use App\Http\Controllers\admin\ImagesController;
+use App\Http\Controllers\admin\MenuController;
 use App\Http\Controllers\admin\NoticeController;
 use App\Http\Controllers\admin\SSRController;
 use App\Http\Controllers\admin\TeamsController;
@@ -111,7 +112,10 @@ Route::prefix('admin')->group(function(){
     Route::resource('images',ImagesController::class)->only([
         'index', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
-    Route::get('images/list', [ImagesController::class, 'list'])->name('images.list');
+    Route::get('/images/{gallery_id}', [ImagesController::class,'list'])->name('images.list');
+
+
+
 });
 
 Route::prefix('admin')->group(function(){
@@ -132,6 +136,13 @@ Route::prefix('admin')->group(function(){
         'index', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
     Route::post('/admin/topbanner/publish/{id}', [TopbannerController::class, 'publish'])->name('topbanner.publish');
+});
+
+Route::prefix('admin')->group(function(){
+    Route::resource('menu',MenuController::class)->only([
+        'index', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
+    Route::post('/admin/menu/publish/{id}', [MenuController::class, 'publish'])->name('menu.publish');
 });
 
 

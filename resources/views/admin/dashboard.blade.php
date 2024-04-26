@@ -357,52 +357,6 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="panel panel-dash">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-users fa-4x"></i>
-                                </div>
-                                <div class="col-xs-9">
-
-                                    <div class="text-capitalize text-right">Non teaching Staffs</div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <a href="nonteam.php">
-                            <div class="panel-footer">
-                                <span class="pull-left">View All</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="panel panel-dash">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-users fa-4x"></i>
-                                </div>
-                                <div class="col-xs-9">
-
-                                    <div class="text-capitalize text-right">Non teaching Staffs</div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <a href="nonteam.php">
-                            <div class="panel-footer">
-                                <span class="pull-left">View All</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
 
             </div>
 

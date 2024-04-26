@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ssr', function (Blueprint $table) {
+        Schema::create('menu', function (Blueprint $table) {
             $table->id();
+
             $table->string('title')->nullable();
 
-            $table->string('file')->nullable();
+            $table->string('link')->nullable();
             $table->string('status')->default('draft');
             $table->string('author')->nullable();
             $table->timestamps();
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ssr');
+        Schema::dropIfExists('menu');
     }
 };

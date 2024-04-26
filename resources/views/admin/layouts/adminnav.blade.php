@@ -59,10 +59,10 @@
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="collapse" data-target="#menu"><i class="fa-solid fa-bars"></i> Menu <i class="fa-solid fa-chevron-down"></i></a>
                 <ul id="menu" class="collapse">
                     <li>
-                        <a href="./menu.php">View All</a>
+                        <a href="{{route('menu.index')}}">View All</a>
                     </li>
                     <li>
-                        <a href="./publish_menu.php">Add New</a>
+                        <a href="{{route('menu.create')}}">Add New</a>
                     </li>
                 </ul>
             </li>
@@ -155,17 +155,7 @@
                 </ul>
             </li>
 
-           <li>
-                <a href="javascript:;" class="dropdown-toggle" data-toggle="collapse" data-target="#gallery_images"><i class="fa-regular fa-image"></i> Gallery Images <i class="fa-solid fa-chevron-down"></i></a>
-                <ul id="gallery_images" class="collapse">
-                    <li>
-                        <a href="./gallery_images.php">View All</a>
-                    </li>
-                    <li>
-                        <a href="./publish_gallery_images.php">Add New</a>
-                    </li>
-                </ul>
-            </li>
+
            <li>
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="collapse" data-target="#team"><i class="fa fa-fw fa-users"></i> Teams <i class="fa-solid fa-chevron-down"></i></a>
                 <ul id="team" class="collapse">
@@ -177,17 +167,7 @@
                     </li>
                 </ul>
             </li>
-          <li>
-                <a href="javascript:;" class="dropdown-toggle" data-toggle="collapse" data-target="#nonteam"><i class="fa fa-fw fa-users"></i> Non Teaching Staffs <i class="fa-solid fa-chevron-down"></i></a>
-                <ul id="nonteam" class="collapse">
-                    <li>
-                        <a href="./nonteam.php">View All</a>
-                    </li>
-                    <li>
-                        <a href="./publish_nonteam.php">Add New</a>
-                    </li>
-                </ul>
-            </li>
+
             <li>
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="collapse" data-target="#testimonial"><i class="fa-solid fa-quote-left"></i> Testimonial <i class="fa-solid fa-chevron-down"></i></a>
                 <ul id="testimonial" class="collapse">
@@ -210,17 +190,7 @@
                     </li>
                 </ul>
             </li>
-           <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#downloads_file"><i class="fa-solid fa-download"></i> Downloads Files <i class="fa-solid fa-chevron-down"></i></a>
-                <ul id="downloads_file" class="collapse">
-                    <li>
-                        <a href="./downloads_file.php">View All</a>
-                    </li>
-                    <li>
-                        <a href="./publish_downloads_file.php">Add New</a>
-                    </li>
-                </ul>
-            </li>
+
             <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#about"><i class="fa-solid fa-building-columns"></i> About <i class="fa-solid fa-chevron-down"></i></a>
                 <ul id="about" class="collapse">
